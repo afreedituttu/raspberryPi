@@ -1,0 +1,77 @@
+Command List :
+
+ First Update all Of the Repositories By
+ typing this Command inside Terminal
+
+ sudo apt-get update
+
+Then Try To Install These Packages TO Add An Support For NTFS & 
+EXFAT File Systems With in the Raspberry PI 
+
+ NTFS Package : 
+
+ sudo apt-get install ntfs-3g 
+
+ Exfat Package: 
+
+ sudo apt-get install exfat-utils exfat-fuse 
+
+Samba Server Installation: 
+
+sudo apt-get install samba samba-common-bin 
+
+Creating a Directory inside the root 
+
+sudo mkdir /PiServer (You can use Any Name)
+
+Change the Permissions to that Directory 
+
+Sudo chmod 777 /PiServer 
+
+Type LSBLK to check the mounting point of the connected drives
+
+sudo mount /dev/sda{number} /PiServer
+
+
+Configuring samba 
+
+sudo nano /etc/samba/smb.conf
+
+ [Server Name]
+  comment = "anyname" 
+  path = /PiServer
+  browseable = yes 
+  read only = no 
+  writeable= yes 
+  create mask = 0777 
+  directory mask = 0777 
+  public = no
+  force user = root 
+  
+Adding user To Access Raspberry Pi NAS Server
+
+sudo adduser KSKROYAL
+
+sudo smbpasswd - a KSKROYAL
+
+
+Restating the Samba -
+
+sudo /etc/init.d/smbd restart 
+sudo /etc/init.d/nmbd restart 
+
+
+To Auto mount Drives upon Rebooting
+sudo nano /etc/fstab & add the below line
+/dev/sda1 /PiServer auto defaults, user 0 2
+
+To Set A Static IP address For Your Raspberry Pi which means it will never change upon rebooting
+
+Sudo nano /etc/dhcpcd.conf & add these lines to the end of the file
+
+static ip_address = 192.168.0.23/24
+static routers = 192.168.0.1
+static domain_name_servers = 192.168.0.1
+
+Note : In the above line, I have set 192.168.0.23 as my default raspberry pi 4 NAS Server IP address you can use any series
+Between 192.168.0.2 - 192.168.0.24

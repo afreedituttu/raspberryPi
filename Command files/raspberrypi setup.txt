@@ -1,0 +1,17 @@
+setting up raspberry pi 3:
+1.format the SD card
+2.burn the OS in the SD card
+3.if SD card is not showen re-insert the SD card
+4.BOOT folder will create automatically
+5. Go to views and click on file name extintion
+6.Then right click>new>new doc to ssh
+7.copy the crediental's to folder and save
+
+8.instert the SD card to Raspberry pi
+9.open the "Putty" and right Raspberrypi/can scan the IP address with advance scanner
+10.Putty ask for the log in: pi and psw:raspberry
+11.then wirte command "sudo raspi-config" >interfacing options >enable SSH and VNC
+12.close the Putty and head over to VNC and log in with same credincials used to log in the Putty
+#To find IP address/ To find the raspberry pi is connected or not 
+#we need to head over to Router IP address>activ client table
+#To check IP address go to putty and login > give command "hostname -I" and "hostname"(IP address keep on change)

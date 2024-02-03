@@ -1,0 +1,18 @@
+1.Set up the raspberry pi wirelessly with VNC.
+2.open the command panal and start wirghting following commands:
+  -> sudo apt-get update
+  -> sudo apt-get upgrade
+  -> sudo apt-get install samba samba-common-bin(to install samba server)
+  ->sudo nano /etc/samba/smb.conf (by using nano editor and config for samba)
+  ->[Anveshreddy]
+    path = /media/pi/
+    writeable=Yes
+    create mask=0777
+    directory mask=0777
+    public=no    (write this line of code for navigation)
+  -> press ctl+O>Enter>ctl+X 
+  -> sudo smbpasswd -a pi (create the password for raspberry pi)
+  -> sudo systemctl restart smbd (to restart samba)
+3. Go to This PC > Computer at top > Map to network >Then give in tab \\raspberrypi\Anveshreddy and give login you set up
+4. Access the network from iphone and andriod by "FX file expoler"
+  

@@ -1,0 +1,23 @@
+1 check the current IP address in VNC or remote monitor using(ifconfig) command.
+172.20.10.7
+2.Need to check the gateway ip address for that we have a command called (sudo route -n)
+172.20.10.1
+3.with the help of current IP address and gateway ip address we can easily sent static ip address
+4.for making static use command (sudo nano /etc/dhcpcd.conf)
+5.it open up the file then top of it add this lines(interface wlan0 or eth0(which you connected, in next line write static ip_address=<your static ip>), 
+next line "static routers Ip adrress(static routers=<Ip address of router>
+6.need to assigen DNS we can use google or cloud DNS to assigen that write static domain_name_servers=8.8.8.8 8.8.4.4
+7. need to reboot now (sudo reboot)
+
+##After the command sudo nano /etc/dhcpcd.conf
+in file at top you need to add
+
+interface wlan0 or eth0      (make sure how you are connecting with lan or network)
+static ip_address=<your choise IP>
+static routers=<Ip address of router>
+static domain_name_servers=8.8.8.8 8.8.4.4
+
+save the file and reboot (sudo reboot)
+
+
+

@@ -1,0 +1,12 @@
+Camera live streaming intigration
+
+1. Sudo apt-get update and upgrade
+2.git clone https://github.com/silvanmelchior/RPi_Cam_Web_Interface.git
+3 Then cd RPI_Cam_Web_Interface... go to directory
+4. To install the service  ./install.sh
+5. to start the service -> ./start.sh
+6. To stop this service: ./stop.sh
+7. give your Ip Address in browser then click in html and you see the camera 
+
+
+Thios is only in locall network 
